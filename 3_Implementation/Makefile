@@ -13,7 +13,7 @@ TEST_SRC = src/fun.c\
 test/test.c\
 unity/unity.c\
 
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
+TEST_OUTPUT = yes.out
 
 # All include folders with header files
 INC	= -I inc\
@@ -25,23 +25,17 @@ INC	= -I inc\
 INCLUDE_LIBS =
 
 # Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
+PROJECT_OUTPUT = all.out
 
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
 
 # Default target built
-$(PROJECT_NAME):all
-
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all
 
 all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT)
 
 # Call `make run` to run the application
 run:$(PROJECT_NAME)
-	./$(PROJECT_OUTPUT).out
+	./$(PROJECT_OUTPUT)
 
 # Document the code using Doxygen
 #doc:
