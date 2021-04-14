@@ -2,7 +2,7 @@
 PROJECT_NAME = gamesapp
 
 # Output directory
-BUILD = build
+
 
 # All source code files
 SRC = project_main.c\
@@ -30,7 +30,7 @@ PROJECT_OUTPUT = all.out
 
 # Default target built
 
-all: $(SRC) $(BUILD)
+all: $(SRC) 
 	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT)
 
 # Call `make run` to run the application
@@ -42,18 +42,16 @@ run:$(PROJECT_NAME)
 #	make -C ./documentation
 
 # Build and run the unit tests
-test:$(BUILD)
+test:
 	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
 	./$(TEST_OUTPUT)
 #Coverage
-coverageCheck:$(BUILD)
+coverageCheck:
 	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
 	./$(TEST_OUTPUT)
 
 # Remove all the built files, invoke by `make clean`
 clean:
-	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
+	rm  $(DOCUMENTATION_OUTPUT)
 
 # Create new build folder if not present
-$(BUILD):
-	mkdir build
