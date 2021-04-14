@@ -21,6 +21,6 @@ jobs:
     - name: Valgrid
       run: ls 3_Implementation
     - name: ex
-      run: valgrind yes.out
+      run: valgrind ./yes.out
 
 
