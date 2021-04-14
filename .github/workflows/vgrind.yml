@@ -18,8 +18,8 @@ jobs:
         sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev 
     - name: make test
       run: make -C 3_Implementation/ test
-    - name: Valgrid
-      run: ls 3_Implementation
+    - check: look
+      run: ls
     - name: ex
       run: valgrind ./yes.out
 
